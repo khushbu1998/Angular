@@ -1,0 +1,25 @@
+<p>Customer Data</p>
+
+<form #regForm="ngForm" (ngSubmit)="mySubmit(regForm)">
+
+<div class="form-group">
+    <label for="first-name">Name </label>
+    <input #fname="ngModel" type="text" name="first-name" required minlength="4" maxlength="12" class="form-control" [(ngModel)]="cust.name" />
+    <div *ngIf="fname.touched && fname.invalid" class="alert alert-danger">Invalid first name</div>
+</div>
+<pre></pre>
+
+
+<div class="form-group">
+    <label for="balance">Balance </label>
+    <input type="text" name="balance" class="form-control"  [(ngModel)]="cust.balance"/>
+</div>
+<pre></pre>
+
+<button class="btn btn-primary" type="submit">Submit</button>
+
+</form>
+
+<h3>Details</h3>
+<h4> Name: {{cust.name}}</h4>
+<h4>Balance: {{cust.balance}} </h4>

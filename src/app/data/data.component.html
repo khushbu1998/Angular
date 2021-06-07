@@ -1,0 +1,100 @@
+<style> 
+h3{
+    color:brown;
+}
+</style>
+<h1>Product Information</h1>
+<h3> Name: {{name}}</h3>
+<h3>Age: {{age}}</h3>
+<h3>Product ID: {{pid}}</h3>
+<h3>Availability:: {{avai}}</h3>
+<h3>Delivery:  <span [style.color]='delivery'>Yes</span></h3>
+<br>
+<button [disabled]="btnSend">click</button>
+<br>
+<h3 [style.color]="blue">This is a property binding</h3>
+<button (click)="showAlert()">Show Message</button>
+<br>
+<pre> </pre>
+<h2>Two way Binding Demonstration</h2>
+Enter Your Choices: <input [(ngModel)]="food"> : {{food}}
+
+<pre></pre>
+<h2>Structural Directives</h2>
+<p *ngIf="isMember"><u>Should appear only for members/show timing/offers</u></p>
+<hr/>
+<h3>if else </h3>
+<div *ngIf="isMember; else ifNotMember">
+
+    <p>You are eligible for free 500GB movie donwloads : click</p>
+
+</div>
+<ng-template #ifNotMember>
+
+    Join or subscribe to enjoy freebie click to join
+
+</ng-template>
+
+<h3>if else with template</h3>
+<ng-template *ngIf="isShow; then show; else dontShow"></ng-template>
+<ng-template #show>Welcome to member </ng-template>
+<ng-template #dontShow>Joins as member</ng-template>
+
+<h3> ngFor looping - forEach through arrays </h3>
+
+<ul>
+
+    <li *ngFor="let product of products let num=index ">
+    
+        #index: {{num}},  {{product.name}} ,{{product.description}}, {{product.price}}
+    
+    </li>
+
+</ul>
+
+<h1>Sports Products!!!</h1>
+
+<button (click)="showSkating()">Skate Board</button><br>
+
+<ul *ngIf="cskating">
+    <li *ngFor="let product of skating let num=index ">
+       
+        #index: {{num}},  {{product.name}} ,{{product.description}}, {{product.price}}
+
+    </li>
+</ul>
+
+<br>
+<button (click)="showBadminton()">Badminton</button><br>
+<ul *ngIf="cbadminton">
+
+    <li *ngFor="let product of badminton let num=index ">
+    
+        #index: {{num}},   #name:  {{product.name}} ,  #desc: {{product.description}}, #price: {{product.price}}
+    
+    </li>
+
+</ul>
+<br>
+<button (click)="showCricket()">Cricket Bat</button><br>
+<ul *ngIf="ccricketBat">
+
+    <li *ngFor="let product of cricketBat let num=index ">
+    
+        #index: {{num}},  {{product.name}} , {{product.description}}, {{product.price}}
+    
+    </li>
+
+</ul>
+
+<h3>Using services in Component</h3>
+<button (click)="callService()">Run Service</button>
+<ul>
+
+    <li *ngFor="let product of skatingData">
+     
+        {{product.id}},  {{product.name}} , {{product.description}}, {{product.price}}
+    
+    </li>
+
+</ul>
